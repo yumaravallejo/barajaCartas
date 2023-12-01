@@ -30,6 +30,13 @@ public class Naipes {
         }
     }
 
+    public Naipes(int numCartas, PaloCarta paloCarta) {
+        try {
+            this.numCarta = numCarta;
+            this.paloCarta = paloCarta;
+        } catch (NumberFormatException nfe) {
+            System.out.println("El formato no es correcto");
+        }
+    }
 
-    
 }
