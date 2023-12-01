@@ -39,4 +39,32 @@ public class Naipes {
         }
     }
 
+    public int getNumCarta() {
+        return numCarta;
+    }
+
+    public void setNumCarta(int numCarta) {
+        this.numCarta = numCarta;
+    }
+
+    public PaloCarta getPaloCarta() {
+        return paloCarta;
+    }
+
+    public void setPaloCarta(PaloCarta paloCarta) {
+        this.paloCarta = paloCarta;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Naipes{");
+        sb.append("numCarta=").append(numCarta);
+        sb.append(", paloCarta=").append(paloCarta);
+        sb.append('}');
+        return sb.toString();
+    }
+
+    
+    
 }
