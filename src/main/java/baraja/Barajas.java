@@ -9,20 +9,28 @@ package baraja;
  * @author yumara
  */
 public class Barajas {
-    
+
     private Naipes[] baraja = new Naipes[40];
-    
-    public Barajas () {
+
+    public Barajas() {
         boolean correcto = true;
-        for (int i = 0; i < baraja.length ; i++) {
-           do {  
-            baraja[i] = new Naipes();
-                           
-            } while (baraja[i] == baraja[i-1]);
-            
+        System.out.println("La baraja es: ");
+        for (int i = 0; i < baraja.length; i++) {
+            do {
+                baraja[i] = new Naipes();
+                System.out.println(baraja[i]);
+            } while (yaContieneValor(baraja, baraja[i]));
         }
-        
-        
     }
+        private static boolean yaContieneValor(Naipes[] array, Naipes carta){
+            for(Naipes elemento : array){
+                if(elemento == carta) {
+                    return true;
+                }               
+            }
+            return false;
+        }
+    }
+
     
-}
+
