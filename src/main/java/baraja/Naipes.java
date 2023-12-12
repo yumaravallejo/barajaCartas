@@ -14,11 +14,11 @@ public class Naipes {
     private int numCarta;
     private PaloCarta paloCarta;
 
-    //Constructor por defecto y aleatorio
+    //Constructor por defecto y aleatorio (sin parámetros)
     public Naipes() {
         Random rd = new Random();
         this.numCarta = rd.nextInt(1, 11);
-        int valoresRandom = rd.nextInt(PaloCarta.values().length);
+        int valoresRandom = rd.nextInt(1,5);
         if (valoresRandom == 1) {
             this.paloCarta = PaloCarta.OROS;
         } else if (valoresRandom == 2) {
@@ -27,16 +27,13 @@ public class Naipes {
             this.paloCarta = PaloCarta.ESPADAS;
         } else if (valoresRandom == 4) {
             this.paloCarta = PaloCarta.COPAS;
-        }
+        } else {this.paloCarta = paloCarta;}
     }
 
+    //Constructor parametrizado
     public Naipes(int numCartas, PaloCarta paloCarta) {
-        try {
-            this.numCarta = numCarta;
+            this.numCarta = numCartas;
             this.paloCarta = paloCarta;
-        } catch (NumberFormatException nfe) {
-            System.out.println("El formato no es correcto");
-        }
     }
 
     public int getNumCarta() {
@@ -50,18 +47,27 @@ public class Naipes {
     public PaloCarta getPaloCarta() {
         return paloCarta;
     }
-
-    public void setPaloCarta(PaloCarta paloCarta) {
-        this.paloCarta = paloCarta;
-    }
-
+    
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Naipes{");
-        sb.append("numCarta=").append(numCarta);
-        sb.append(", paloCarta=").append(paloCarta);
-        sb.append('}');
+        switch (numCarta){
+                
+        case 10 -> {
+               sb.append("Rey de ").append(this.paloCarta);
+        }
+        
+        case 9 -> {
+               sb.append("Caballo de ").append(this.paloCarta);
+        }
+        
+        case 8 -> {
+               sb.append("Sota de ").append(this.paloCarta);
+        }
+        
+        default -> {sb.append(numCarta + " de ").append(paloCarta);}
+        
+        }
         return sb.toString();
     }
 

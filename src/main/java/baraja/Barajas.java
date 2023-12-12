@@ -10,27 +10,28 @@ package baraja;
  */
 public class Barajas {
 
-    private Naipes[] baraja = new Naipes[40];
+    final int CANT_BARAJA = 40;
+    private final Naipes[] baraja;
+    int n;
 
     public Barajas() {
-        boolean correcto = true;
-        System.out.println("La baraja es: ");
-        for (int i = 0; i < baraja.length; i++) {
-            do {
-                baraja[i] = new Naipes();
-                System.out.println(baraja[i]);
-            } while (yaContieneValor(baraja, baraja[i]));
-        }
-    }
-        private static boolean yaContieneValor(Naipes[] array, Naipes carta){
-            for(Naipes elemento : array){
-                if(elemento == carta) {
-                    return true;
-                }               
+        this.baraja = new Naipes[CANT_BARAJA];
+        int contador = 0;
+        for (PaloCarta palo : PaloCarta.values()) { //Esto 
+            for (n = 1; n <= 10; n++) {
+                this.baraja[contador++] = new Naipes(n, palo);
             }
-            return false;
         }
     }
 
-    
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < baraja.length; i++) {
+            sb.append(i+ ".- ");
+            sb.append(baraja[i]).append("\n");
+        }
+        return sb.toString();
+    }
 
+}

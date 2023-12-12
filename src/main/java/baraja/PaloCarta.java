@@ -10,22 +10,9 @@ package baraja;
  */
 public enum PaloCarta {
     
-    OROS("Oros"), BASTOS("Bastos"), ESPADAS("Espadas"), COPAS("Copas");
-    
-    private String paloCartas;
-    
-    private PaloCarta(String paloCartas){
-        this.paloCartas = paloCartas;
-    }
+    OROS, BASTOS, ESPADAS, COPAS;
 
-    public String getPaloCartas() {
-        return paloCartas;
-    }
-
-    public void setPaloCartas(String paloCartas) {
-        this.paloCartas = paloCartas;
-    }
-
-   
+    //Enum sin atributos
+    //Enum sin setter porque podría cambiarse
     
 }
